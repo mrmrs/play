@@ -77,7 +77,7 @@
     <div class="rounded" v-component="plangular" v-src="'https://soundcloud.com/mr_mrs/sets/october-summer'">
       <div>
         <div class="center" style="padding-top: 2rem; padding-bottom: 0;">
-          <h1 class="m0 f3 f2-m f1-l" style="font-weight:bold; white-space: nowrap;">{{ title }}</h1>
+          <h1 class="m0 f5 f2-m f1-l" style="font-weight:bold; white-space: nowrap;">{{ title }}</h1>
         </div>
           <p class="center monospace h6 display-block" style="background:red; display:none;">{{ currentTime | prettyTime }} - {{ duration | prettyTime }}</p>
             <div class="" style="margin-right: auto; margin-left: auto; max-width: 16rem;">
@@ -103,7 +103,7 @@
         <div class="table">
           <div class="table-cell full-width">
             <div class="px1">
-              <progress style="height: 1rem; " class="" v-on="click: seek($event)" value="{{ currentTime / duration || 0 }}">{{ currentTime / duration }}</progress>
+              <progress style="height: 1rem;" class="" v-on="click: seek($event)" value="{{ currentTime / duration || 0 }}">{{ currentTime / duration }}</progress>
             </div>
           </div>
         </div>
