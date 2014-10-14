@@ -9,6 +9,7 @@
   <link rel="icon" href="docs/favicon.png" />
   <link rel="docs/apple-touch-icon-precomposed" href="apple-touch-icon.png" />
   <link rel="stylesheet" href="docs/autobass.css"/>
+  <link rel="stylesheet" href="https://raw.githubusercontent.com/mrmrs/css-spacing/master/spacing.min.css" />
 
   <link href="http://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
 
@@ -66,7 +67,8 @@
 
 </style>
 </head>
-<body id="vm" class="" style="background: url(img/3.JPG); background-size: cover;">
+<body id="vm" class="">
+  <div style="background: url(img/3.JPG); background-size: cover;">
 
 
 
@@ -103,7 +105,7 @@
         <div class="table">
           <div class="table-cell full-width">
             <div class="px1">
-              <progress style="height: 1rem;" class="" v-on="click: seek($event)" value="{{ currentTime / duration || 0 }}">{{ currentTime / duration }}</progress>
+              <progress class="pvxs pvm-ns" v-on="click: seek($event)" value="{{ currentTime / duration || 0 }}">{{ currentTime / duration }}</progress>
             </div>
           </div>
         </div>
@@ -123,7 +125,7 @@
   </section>
 
 
+</div>
 <script> var vm = new Vue({ el: '#vm' }); </script>
-
 </body>
 </html>
