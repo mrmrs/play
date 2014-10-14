@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>october summer . play</title>
+  <meta name="description" content="Create your own custom SoundCloud player with just HTML and CSS. Built with AngularJS">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link rel="icon" href="../docs/favicon.png" />
+  <link rel="../docs/apple-touch-icon-precomposed" href="apple-touch-icon.png" />
+  <link rel="stylesheet" href="../docs/autobass.css"/>
+
+  <link href="http://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/vue/0.10.6/vue.min.js"></script>
+  <script src="../v-plangular.min.js"></script>
+
+  <!--
+  <script src="docs/app.js"></script>
+  -->
+<style type="text/css" media="screen">
+  body, html { background-color: black ;color: white; height: 100%; }
+  
+  svg { fill: white; opacity: 0.8;}
+/*
+
+   TYPE SCALE
+
+   A mobile first, highly readable type-scale.
+
+*/
+
+.f1    { font-size: 4rem; }
+.f2    { font-size: 2rem; }
+.f3    { font-size: 1.25rem; }
+.f4    { font-size: 1rem; }
+.f5,
+.small { font-size: .85rem; }
+
+@media only screen and (min-width: 48em) {
+  .f1-ns    { font-size: 4rem; }
+  .f2-ns    { font-size: 2rem; }
+  .f3-ns    { font-size: 1.25rem; }
+  .f4-ns    { font-size: 1rem; }
+  .f5-ns,
+  .small-ns { font-size: .85rem; }
+}
+
+@media only screen and (min-width: 48em) and (max-width: 64em) {
+  .f1-m    { font-size: 5rem; }
+  .f2-m    { font-size: 2.5rem; }
+  .f3-m    { font-size: 1.25rem; }
+  .f4-m    { font-size: 1rem; }
+  .f5-m,
+  .small-m { font-size: .85rem; }
+}
+
+@media only screen and (min-width: 64em)  {
+  .f1-l    { font-size: 5rem; }
+  .f2-l    { font-size: 2.5rem; }
+  .f3-l    { font-size: 1.5rem; }
+  .f4-l    { font-size: 1.25rem; }
+  .f5-l,
+  .small-l { font-size: 1rem; }
+}
+
+</style>
+</head>
+<body id="vm" class="" style="background: url(../img/3.JPG); background-size: cover;">
+
+
+
+
+  <section id="examples" class="container mw-64 px2">
+
+
+    <div class="rounded" v-component="plangular" v-src="'https://soundcloud.com/mr_mrs/sets/october-summer'">
+      <div>
+        <div class="center" style="padding-top: 2rem; padding-bottom: 0;">
+          <h1 class="m0 f3 f2-m f1-l" style="font-weight:bold; white-space: nowrap;">{{ title }}</h1>
+        </div>
+          <p class="center monospace h6 display-block" style="background:red; display:none;">{{ currentTime | prettyTime }} - {{ duration | prettyTime }}</p>
+            <div class="" style="margin-right: auto; margin-left: auto; max-width: 16rem;">
+        <div class="table full-width">
+          <div class="table-cell center">
+            <button class="button-icon" v-on="click: previous()">
+              <svg v-plangular-icon="'previous'"></svg>
+            </button>
+          </div>
+          <div class="table-cell center">
+            <button class="h2 button-icon" v-on="click: playPause(player.playlistIndex)">
+              <svg v-if="player.tracks[player.i] != track || !player.playing" v-plangular-icon="'play'"></svg>
+              <svg v-if="player.tracks[player.i] == track && player.playing" v-plangular-icon="'pause'"></svg>
+            </button>
+          </div>
+          <div class="table-cell center">
+            <button class="button-icon" v-on="click: next()">
+              <svg v-plangular-icon="'next'"></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+        <div class="table">
+          <div class="table-cell full-width">
+            <div class="px1">
+              <progress style="height: 1rem; " class="" v-on="click: seek($event)" value="{{ currentTime / duration || 0 }}">{{ currentTime / duration }}</progress>
+            </div>
+          </div>
+        </div>
+      </div>
+      <section class="center" style="margin-top:2rem;">
+      <div v-repeat="t : tracks">
+        <a href="#{{ t.title }}" class="block px2 py1 nav-item"
+          v-on="click: playPause($index)"
+          v-class="player.currentTrack == t ? 'bg-darken-3' : ''">
+          <small class="small" style="opacity: 0.9; color: white; display: none; text-transform: uppercase; letter-spacing: .13em;">{{ t.user.username }}</small> 
+          <span class="f3 f2-ns" style="opacity: 0.9; color: white;  font-weight: bold; text-transform: lowercase; ">{{ t.title }}</span>
+        </a>
+      </div>
+    </section>
+    </div>
+
+  </section>
+
+
+<script> var vm = new Vue({ el: '#vm' }); </script>
+
+</body>
+</html>
