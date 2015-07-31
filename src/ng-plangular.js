@@ -21,7 +21,7 @@ plangular.directive('plangular', ['$http', 'plangularConfig', function ($http, p
   var audio = document.createElement('audio');
 
   var player = {
- 
+
     currentTrack: false,
     playing: false,
     tracks: [],
@@ -190,10 +190,10 @@ plangular.directive('plangular', ['$http', 'plangularConfig', function ($http, p
           scope.$apply(function() {
             scope.currentTime = player.currentTime;
             scope.duration = player.duration;
-          });  
+          });
         };
       }, false);
-      
+
       scope.seek = function(e){
         if (player.tracks[player.i] == scope.track) {
           player.seek(e);
@@ -251,7 +251,7 @@ plangular.directive('plangularIcon', function() {
       el.setAttribute('fill', 'currentColor');
       path.setAttribute('d', sprite[id]);
       el.appendChild(path);
- 
+
     }
 
   }
@@ -269,9 +269,9 @@ plangular.filter('prettyTime', function() {
         secs = secs.substr(secs.length - 2);
     if(!isNaN(secs)){
       if (hours){
-        return hours+':'+mins+':'+secs;  
+        return hours+':'+mins+':'+secs;
       } else {
-        return mins+':'+secs;  
+        return mins+':'+secs;
       };
     } else {
       return '00:00';
@@ -280,7 +280,7 @@ plangular.filter('prettyTime', function() {
 });
 
 plangular.provider('plangularConfig', function() {
-  this.clientId = '0d33361983f16d2527b01fbf6408b7d7';
+  this.clientId = '4b12fb7c1cbc619fce3cf9adb1c4cd0a';
   var _this = this;
   this.$get = function() {
     return {

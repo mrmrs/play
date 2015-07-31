@@ -572,7 +572,7 @@ module.exports = audio;
 'use strict';
 
 var plangular = {};
-plangular.clientID = '0d33361983f16d2527b01fbf6408b7d7';
+plangular.clientID = '4b12fb7c1cbc619fce3cf9adb1c4cd0a';
 plangular.api = 'http://api.soundcloud.com/resolve.json';
 plangular.data = {};
 
@@ -715,9 +715,9 @@ module.exports = player;
 /*
 
   Vue Icons directive
- 
+
   Icons from Geomicons Open http://jxnblk.github.io/geomicons-open
- 
+
   Usage:
 
     <svg v-icon="'play'"></svg>
